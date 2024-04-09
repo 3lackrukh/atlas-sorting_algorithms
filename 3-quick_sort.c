@@ -24,14 +24,14 @@ void quick_sort(int *array, size_t size)
 			s = array[i];
 			array[i] = array[k];
 			array[k] = s;
-			print_array(array);
-			i++
+			print_array(array, size);
+			i++;
 		}
 		k++;
 	}
 	s = array[i];
 	array [i] = pivot;
 	pivot = s;
-	print_array(array);
+	print_array(array, size);
 }
 
