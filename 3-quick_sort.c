@@ -10,28 +10,38 @@
  *
  * Return: nothing.
  */
-
 void quick_sort(int *array, size_t size)
 {
+	if (size <= 1)
+		return;
+
 	size_t i = 0, k = 0;
 	int s, pivot;
 
-	pivot = array[(size - 1)];
-	while (k < (size - 1))
+	pivot = array[size - 1];
+	while (k < size )
 	{
 		if(array[k] < pivot)
 		{
-			s = array[i];
-			array[i] = array[k];
-			array[k] = s;
-			print_array(array, size);
-			i++;
+			if(array[i] < array[k])
+			{
+				s = array[i];
+				array[i] = array[k];
+				array[k] = s;
+				i++;
+				print_array(array, size);
+			}
 		}
 		k++;
 	}
-	s = array[i];
-	array [i] = pivot;
-	pivot = s;
-	print_array(array, size);
-}
+	if (array[i] > pivot)
+	{
+		s = array[i];
+		array [i] = pivot;
+		array[size - 1] = s;
+		print_array(array, size);
+	}
 
+	quick_sort(array, i);
+	quick_sort(array + i +1, size - i -1);
+}
