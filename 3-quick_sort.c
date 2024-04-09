@@ -12,11 +12,11 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	if (size <= 1)
-		return;
-
 	size_t i = 0, k = 0;
 	int s, pivot;
+
+	if (size <= 1)
+		return;
 
 	pivot = array[size - 1];
 	while (k < size )
